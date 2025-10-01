@@ -25,9 +25,16 @@ public class NeonRunnerPlayerController : MonoBehaviour
     private bool isGrounded;
     private float horizontalInput;
 
+    //Set these references in the inspector
+    public AudioClip jumpSound;
+    public AudioSource playerAudio;
+
 
     void Start()
     {
+        //Set reference to player audio source
+        playerAudio = GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         if (groundCheck == null)
             Debug.LogError("groundCheck not assigned to the player controller");
@@ -39,9 +46,11 @@ public class NeonRunnerPlayerController : MonoBehaviour
         // Horizontal input
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Jump (preserves current X velocity)
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // Jump (preserves current X velocity){
+        if (Input.GetButtonDown("Jump") && isGrounded) { 
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            playerAudio.PlayOneShot(jumpSound, 0.5f);
+        }
     }
 
     void FixedUpdate()
