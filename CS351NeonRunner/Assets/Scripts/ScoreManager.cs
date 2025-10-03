@@ -14,6 +14,9 @@ public class ScoreManager : MonoBehaviour
     //Set this in the inspector
     public TMP_Text textbox;
     public int scoreToWin;
+    public GameObject player1; // added by Johcori 
+    public GameObject player2; //  added by Johcori
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +55,14 @@ public class ScoreManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+                // Respawn player at last checkpoint
+                FlagCheckPoint.RespawnPlayer(player1);
+                FlagCheckPoint.RespawnPlayer(player2);
+
+
+
             }
         }
     }
