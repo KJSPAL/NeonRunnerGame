@@ -621,10 +621,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textbox: {fileID: 2063706918}
   sentenses:
-  - Use WASD or Arrow Keys to Move
-  - Press SPACE to Jump
-  - Hold Left Shift to Sprint
-  - Collect All Green Particles to Win
+  - Use WASD for Player1 or Arrow Keys for Player2 to Move
+  - Press W for Player1 or UpArrow for Player2 to Jump
+  - Hold LeftShift for Player1 or RightControl for Player2 to Sprint
   typingSpeed: 0.02
   continueButton: {fileID: 1001713664}
   dialoguePanel: {fileID: 1204984896}
