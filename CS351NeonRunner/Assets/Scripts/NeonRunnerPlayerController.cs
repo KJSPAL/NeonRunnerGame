@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class NeonRunnerPlayerController : MonoBehaviour
 {
-    [Header("Input (per player)")]
+    [Header("Input (per player)")] //This is a header that shows better orginization in the inspector
+    //This is all assisgnable per player in the inspector
     public KeyCode leftKey = KeyCode.A;           // P1: A,   P2: LeftArrow
     public KeyCode rightKey = KeyCode.D;           // P1: D,   P2: RightArrow
     public KeyCode jumpKey = KeyCode.W;           // P1: W or Space, P2: UpArrow
-    public KeyCode sprintKey = KeyCode.LeftShift;   // P1: LeftShift,  P2: RightShift or RightControl
+    public KeyCode sprintKey = KeyCode.LeftShift;   // P1: LeftShift,  P2: RightControl
 
     [Header("Movement")]
     public float moveSpeed = 5f;
