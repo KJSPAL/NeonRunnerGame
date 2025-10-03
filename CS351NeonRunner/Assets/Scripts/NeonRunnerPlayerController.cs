@@ -99,16 +99,4 @@ public class NeonRunnerPlayerController : MonoBehaviour
         if (horizontalInput > 0f) transform.localScale = new Vector3(1f, 1f, 1f);
         else if (horizontalInput < 0f) transform.localScale = new Vector3(-1f, 1f, 1f);
     }
-
-#if UNITY_EDITOR
-    // Optional: visualize the ground check radius in the editor
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
-#endif
 }
