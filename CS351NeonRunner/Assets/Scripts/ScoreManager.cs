@@ -57,10 +57,6 @@ public class ScoreManager : MonoBehaviour
             {
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-                // Respawn player at last checkpoint
-                FlagCheckPoint.RespawnPlayer(player1);
-                FlagCheckPoint.RespawnPlayer(player2);
-
 
 
             }

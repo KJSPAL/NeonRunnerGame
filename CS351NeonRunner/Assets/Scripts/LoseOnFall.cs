@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class LoseOnFall : MonoBehaviour
 {
-    //Set this in the inspector
-    public float lowestY;
+    public float lowestY = -10f;
 
-    // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < lowestY)
+        if (transform.position.y < lowestY)
         {
-           ScoreManager.gameOver = true;
+            GetComponent<FlagCheckpointAssign>().Respawn();
         }
     }
 }
