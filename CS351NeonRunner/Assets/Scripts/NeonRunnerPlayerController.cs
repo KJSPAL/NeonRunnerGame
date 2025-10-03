@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class NeonRunnerPlayerController : MonoBehaviour
 {
+    [Header("Input (per player)")]
+    public KeyCode leftKey = KeyCode.A;           // P1: A,   P2: LeftArrow
+    public KeyCode rightKey = KeyCode.D;           // P1: D,   P2: RightArrow
+    public KeyCode jumpKey = KeyCode.W;           // P1: W or Space, P2: UpArrow
+    public KeyCode sprintKey = KeyCode.LeftShift;   // P1: LeftShift,  P2: RightShift or RightControl
+
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -12,7 +18,7 @@ public class NeonRunnerPlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
 
     [Header("Sprint")]
-    public float sprintMultiplier = 1.5f;     // how much faster when sprinting
+    public float sprintMultiplier = 1.5f;     // how much faster when sprinting (ground only)
 
     [Header("Feel / Control")]
     public float maxSpeed = 8f;               // absolute cap
@@ -21,84 +27,88 @@ public class NeonRunnerPlayerController : MonoBehaviour
     public float groundLinearDrag = 8f;       // stop quickly on ground
     public float airLinearDrag = 1f;          // keep momentum in air
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
-    private float horizontalInput;
-
-    //Set these references in the inspector
+    // Audio
     public AudioClip jumpSound;
     public AudioSource playerAudio;
 
+    // Internals
+    private Rigidbody2D rb;
+    private bool isGrounded;
+    private float horizontalInput; // -1, 0, +1
 
     void Start()
     {
-        //Set reference to player audio source
-        playerAudio = GetComponent<AudioSource>();
-
         rb = GetComponent<Rigidbody2D>();
-        if (groundCheck == null)
-            Debug.LogError("groundCheck not assigned to the player controller");
-
+        if (!playerAudio) playerAudio = GetComponent<AudioSource>();
+        if (!groundCheck) Debug.LogError("groundCheck not assigned to the player controller on " + name);
+        if (!rb) Debug.LogError("Rigidbody2D missing on " + name);
     }
 
     void Update()
     {
-        // Horizontal input
-        horizontalInput = Input.GetAxis("Horizontal");
+        // --- Ground check first for responsive jump ---
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // Jump (preserves current X velocity){
-        if (Input.GetButtonDown("Jump") && isGrounded) { 
+        // --- Read per-player keys and build horizontal input (-1, 0, +1) ---
+        int dir = 0;
+        if (Input.GetKey(leftKey)) dir -= 1;
+        if (Input.GetKey(rightKey)) dir += 1;
+        horizontalInput = dir;
+
+        // --- Jump (preserve X velocity) ---
+        if (Input.GetKeyDown(jumpKey) && isGrounded)
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            playerAudio.PlayOneShot(jumpSound, 0.5f);
+            if (playerAudio && jumpSound) playerAudio.PlayOneShot(jumpSound, 0.5f);
         }
     }
 
     void FixedUpdate()
     {
-        // Ground check first
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // --- Drag swap: high on ground (stops quickly), low in air (preserves momentum) ---
+        rb.drag = isGrounded ? groundLinearDrag : airLinearDrag;
 
-        // Drag swap: high on ground (stops quickly), low in air (preserves momentum)
-        if (isGrounded)
-        {
-            rb.drag = groundLinearDrag;
-        }
-        else
-        {
-            rb.drag = airLinearDrag;
-        }
+        // --- Target speed (sprint only when grounded) ---
+        float speedCap = moveSpeed;
+        if (isGrounded && Input.GetKey(sprintKey))
+            speedCap *= sprintMultiplier;
 
-        // Target speed (includes sprint)
-        float speedCap = moveSpeed; //Cap is just normailmovespeed unless shift is held, then the cap is the movespeed times the multiplier.
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded) speedCap *= sprintMultiplier;
-
-        //
         float targetX = horizontalInput * Mathf.Min(maxSpeed, speedCap);
 
-
-
+        // --- Horizontal movement ---
         if (isGrounded)
-        {//Movement when on the ground
-            // Strong control on ground: move quickly toward target
+        {
+            // Strong control on ground: accelerate quickly toward target
             float newX = Mathf.MoveTowards(rb.velocity.x, targetX, groundAcceleration * Time.fixedDeltaTime);
             rb.velocity = new Vector2(newX, rb.velocity.y);
         }
         else
-        {//Movement when in the air
-            // Air control: weaker nudge toward target to preserve momentum
+        {
+            // Air control: weaker nudge; don't brake if already faster in same direction
             bool sameDir = Mathf.Sign(rb.velocity.x) == Mathf.Sign(targetX);
             if (sameDir && Mathf.Abs(rb.velocity.x) > Mathf.Abs(targetX))
             {
-                // Keep current speed to preserve momentum; don't steer down to targetX
-                targetX = rb.velocity.x;
+                targetX = rb.velocity.x; // keep momentum; don't steer down to a smaller target
             }
+
             float newX = Mathf.MoveTowards(rb.velocity.x, targetX, airAcceleration * Time.fixedDeltaTime);
             rb.velocity = new Vector2(newX, rb.velocity.y);
         }
 
-        // Face movement direction
+        // --- Face movement direction ---
         if (horizontalInput > 0f) transform.localScale = new Vector3(1f, 1f, 1f);
         else if (horizontalInput < 0f) transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 
+#if UNITY_EDITOR
+    // Optional: visualize the ground check radius in the editor
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+#endif
 }
