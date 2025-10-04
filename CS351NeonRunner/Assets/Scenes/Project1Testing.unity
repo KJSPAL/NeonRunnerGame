@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6796628144490000444, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_Color.a
-      value: 0.78039217
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6796628144490000446, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_Name
@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796628144490000447, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -261.7446
+      value: -210.1143
       objectReference: {fileID: 0}
     - target: {fileID: 6796628144490000447, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,10 +222,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6796628144664186246, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628144664186246, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628144664186246, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628144664186246, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628145088530264, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628145088530264, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628145088530264, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6796628146169437308, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1664434314}
+    - target: {fileID: 6796628146169437309, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628146169437309, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628146169437309, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796628146169437311, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -83.146
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
 --- !u!1 &69918918 stripped
@@ -387,6 +431,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+--- !u!1 &447618107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 447618109}
+  - component: {fileID: 447618108}
+  m_Layer: 0
+  m_Name: TrophyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &447618108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447618107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96831839938b64649b6396c451116991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textbox: {fileID: 1908708599}
+--- !u!4 &447618109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447618107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 505.8736, y: 400.76764, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874705169
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,12 +755,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textbox: {fileID: 69918921}
   sentences:
-  - Use <color=#00C1FF>A & D Keys for Player1</color> And <color=#FF0000>LeftArrow
-    & RightArrow For Player2</color> To Move left and right
-  - Use <color=#00C1FF>W Key for Player1</color> And <color=#FF0000>UpArrow For Player2</color>
-    To Jump
-  - Use <color=#00C1FF>RightShift for Player1</color> And <color=#FF0000>RightControl
-    For Player2</color> To Sprint
+  - Use <color=#00C1FF>A & D Keys for Player1</color> and <color=#FF0000>LeftArrow
+    & RightArrow for Player2</color> to move left and right.
+  - Use <color=#00C1FF>W Key for Player1</color> and <color=#FF0000>UpArrow for Player2</color>
+    to jump.
+  - Use <color=#00C1FF>RightShift for Player1</color> and <color=#FF0000>RightControl
+    for Player2</color> to sprint.
+  - Get to the <color=#FFD700>Trophy</color> first to win!
   typingSpeed: 0.02
   continueButton: {fileID: 69918920}
   dialoguePanel: {fileID: 69918918}
@@ -938,6 +1027,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6039537450954108413, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039537450954108413, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bd365d46eae0fe44a8e4b7e0368385e, type: 3}
     - target: {fileID: 6039537451902583085, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_Name
       value: Player1

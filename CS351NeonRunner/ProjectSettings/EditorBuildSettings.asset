@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/PlatformerStart.unity
-    guid: aebc27db0addd554ebd63caf57284436
+    path: Assets/Scenes/Project1Testing.unity
+    guid: d96ee24ef81a6f241be5d979bebeb08d
   m_configObjects: {}
