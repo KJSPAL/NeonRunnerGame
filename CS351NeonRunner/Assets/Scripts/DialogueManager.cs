@@ -92,6 +92,13 @@ public class DialogueManager : MonoBehaviour
             // End of dialogue
             textbox.text = "";
             if (dialoguePanel) dialoguePanel.SetActive(false);
+            Time.timeScale = 1f; // unfreeze game
         }
+    }
+    //start function
+    void Start()
+    {
+        //freeze game
+        Time.timeScale = 0f;
     }
 }
