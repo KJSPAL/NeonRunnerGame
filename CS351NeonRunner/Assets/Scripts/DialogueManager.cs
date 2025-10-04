@@ -1,63 +1,97 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
     public TMP_Text textbox;
-    public string[] sentenses;
-    private int index;
-    public float typingSpeed;
+    public string[] sentences;
+    public float typingSpeed = 0.03f;
 
     public GameObject continueButton;
     public GameObject dialoguePanel;
-    private void OnEnable()
+
+    int index = 0;
+    bool isTyping = false;
+
+    void OnEnable()
     {
-        continueButton.SetActive(false);
-        StartCoroutine(Type());
+        // Reset state every time dialogue opens
+        StopAllCoroutines();
+        isTyping = false;
+        index = 0;
+        if (continueButton) continueButton.SetActive(false);
+
+        // Basic safety checks
+        if (textbox == null)
+        {
+            Debug.LogError("DialogueManager: 'textbox' is not assigned.");
+            return;
+        }
+        if (sentences == null || sentences.Length == 0)
+        {
+            Debug.LogWarning("DialogueManager: 'sentences' is empty. Closing dialogue.");
+            if (dialoguePanel) dialoguePanel.SetActive(false);
+            return;
+        }
+
+        StartCoroutine(TypeVisible());
     }
 
-    //Coroutine to type one letter at a time in the dialogue box
-    IEnumerator Type()
+    IEnumerator TypeVisible()
     {
-        //Start the textbox as empty
-        textbox.text = "";
-        //Loop through each letter in the current sentense
-        foreach (char letter in sentenses[index].ToCharArray())
+        isTyping = true;
+
+        // Bounds check just in case
+        if (index < 0 || index >= sentences.Length)
         {
-            textbox.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            Debug.LogWarning($"DialogueManager: index {index} out of range for sentences[{sentences.Length}].");
+            yield break;
         }
-        continueButton.SetActive(true);
+
+        // Set full rich-text sentence at once, then reveal characters
+        textbox.text = sentences[index];
+        textbox.ForceMeshUpdate();
+
+        int totalChars = textbox.textInfo.characterCount;
+        textbox.maxVisibleCharacters = 0;
+
+        for (int i = 0; i <= totalChars; i++)
+        {
+            textbox.maxVisibleCharacters = i;
+            yield return new WaitForSecondsRealtime(typingSpeed); // works even if Time.timeScale==0
+        }
+
+        isTyping = false;
+        if (continueButton) continueButton.SetActive(true);
     }
 
     public void NextSentence()
     {
-        continueButton.SetActive(false);
-
-        if (index < sentenses.Length - 1)
+        // If user clicks mid-typing, finish instantly
+        if (isTyping)
         {
-            index++;
-            textbox.text = "";
-            StartCoroutine(Type());
+            textbox.maxVisibleCharacters = textbox.textInfo.characterCount;
+            isTyping = false;
+            if (continueButton) continueButton.SetActive(true);
+            return;
+        }
+
+        if (continueButton) continueButton.SetActive(false);
+
+        // Advance
+        index++;
+
+        if (index < sentences.Length)
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeVisible());
         }
         else
         {
+            // End of dialogue
             textbox.text = "";
-            dialoguePanel.SetActive(false);
+            if (dialoguePanel) dialoguePanel.SetActive(false);
         }
-    }
-
-// Start is called before the first frame update
-void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
