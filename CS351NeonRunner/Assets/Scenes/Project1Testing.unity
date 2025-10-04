@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1560753429}
     m_Modifications:
+    - target: {fileID: 6796628144490000444, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78039217
+      objectReference: {fileID: 0}
     - target: {fileID: 6796628144490000446, guid: 7a2f6d8f8ef545f4eb2807ebad3e2208, type: 3}
       propertyPath: m_Name
       value: DialoguePanel
@@ -321,6 +325,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2551885696420117551, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551885696420117551, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551885696420117551, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6039537450954108406, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_Name
       value: Player2Camera
@@ -371,6 +387,88 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+--- !u!1 &874705169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874705171}
+  - component: {fileID: 874705170}
+  m_Layer: 0
+  m_Name: Mirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &874705170
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874705169}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &874705171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874705169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.5006, y: -2.907, z: 0}
+  m_LocalScale: {x: 3.0066957, y: 100, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235534939
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,10 +666,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textbox: {fileID: 69918921}
-  sentenses:
-  - Use WASD for Player1 or Arrow Keys for Player2 to Move
-  - Press W for Player1 or UpArrow for Player2 to Jump
-  - Hold LeftShift for Player1 or RightControl for Player2 to Sprint
+  sentences:
+  - Use <color=#00C1FF>A & D Keys for Player1</color> And <color=#FF0000>LeftArrow
+    & RightArrow For Player2</color> To Move left and right
+  - Use <color=#00C1FF>W Key for Player1</color> And <color=#FF0000>UpArrow For Player2</color>
+    To Jump
+  - Use <color=#00C1FF>RightShift for Player1</color> And <color=#FF0000>RightControl
+    For Player2</color> To Sprint
   typingSpeed: 0.02
   continueButton: {fileID: 69918920}
   dialoguePanel: {fileID: 69918918}
@@ -819,6 +920,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726756830384652305, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551885696420117551, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.75686276
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551885696420117551, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6039537450954108406, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
