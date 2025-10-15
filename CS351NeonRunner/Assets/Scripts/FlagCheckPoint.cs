@@ -10,8 +10,10 @@ public class FlagCheckpoint : MonoBehaviour
     {
         // Play pickup sound
         AudioSource.PlayClipAtPoint(scoreSound, transform.position);
+
         if (other.TryGetComponent<FlagCheckpointAssign>(out var player))
         {
             player.SetCheckpoint(transform);
         }
+    }
 }
