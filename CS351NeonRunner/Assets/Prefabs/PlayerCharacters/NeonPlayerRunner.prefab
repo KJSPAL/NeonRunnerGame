@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 9002364481640384378}
   - component: {fileID: 9002364481640383620}
   - component: {fileID: 9002364481640384377}
+  - component: {fileID: -9145830567486502278}
   m_Layer: 0
   m_Name: NeonPlayerRunner
   m_TagString: Player
@@ -295,3 +296,15 @@ MonoBehaviour:
   airLinearDrag: 0
   jumpSound: {fileID: 8300000, guid: 31ae24f5540970f4db4aefffded26fb8, type: 3}
   playerAudio: {fileID: 0}
+--- !u!114 &-9145830567486502278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002364481640384379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbae4adce8eb70d49a7577fc3e74205f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

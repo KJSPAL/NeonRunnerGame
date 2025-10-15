@@ -6,57 +6,63 @@ public class NeonRunnerPlayerController : MonoBehaviour
 {
     [Header("Input (per player)")] //This is a header that shows better orginization in the inspector
     //This is all assisgnable per player in the inspector
-    public KeyCode leftKey = KeyCode.A;           // P1: A,   P2: LeftArrow
-    public KeyCode rightKey = KeyCode.D;           // P1: D,   P2: RightArrow
-    public KeyCode jumpKey = KeyCode.W;           // P1: W or Space, P2: UpArrow
-    public KeyCode sprintKey = KeyCode.LeftShift;   // P1: LeftShift,  P2: RightControl
+    //These are the default values for Player 1, This needs to  be changed for Player 2.
+    public KeyCode leftKey = KeyCode.A;
+    public KeyCode rightKey = KeyCode.D;
+    public KeyCode jumpKey = KeyCode.W;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
+    //Basic movement parameters that can be adjusted in the inspector
     [Header("Movement")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    public LayerMask groundLayer;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
+    public float moveSpeed = 5f; //base move speed
+    public float jumpForce = 10f; //how high the player jumps
+    public LayerMask groundLayer; //what is considered ground
+    public Transform groundCheck; //where to check for ground
+    public float groundCheckRadius = 0.2f; //how big of a circle to check for ground
 
     [Header("Sprint")]
-    public float sprintMultiplier = 1.5f;     // how much faster when sprinting (ground only)
+    public float sprintMultiplier = 1.5f;     //how much faster when sprinting (ground only)
 
     [Header("Feel / Control")]
-    public float maxSpeed = 8f;               // absolute cap
-    public float groundAcceleration = 60f;    // snappy on ground
-    public float airAcceleration = 20f;       // gentle in air to preserve momentum
+    public float maxSpeed = 8f;               //The highest possible speed
+    //notice that the ground has more acceleration than air for better control   
+    public float groundAcceleration = 60f;    //how fast the player accelerates on the ground
+    public float airAcceleration = 20f;       //how fast the player accelerates in the air
+
+
     public float groundLinearDrag = 8f;       // stop quickly on ground
     public float airLinearDrag = 1f;          // keep momentum in air
 
-    // Audio
+    //Audio
     public AudioClip jumpSound;
     public AudioSource playerAudio;
 
-    // Internals
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    //Internals
+    private Rigidbody2D rb; 
+    private bool isGrounded; //Checks if the ground is touched, true if touching false otherwise
     private float horizontalInput; // -1, 0, +1
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        if (!playerAudio) playerAudio = GetComponent<AudioSource>();
-        if (!groundCheck) Debug.LogError("groundCheck not assigned to the player controller on " + name);
-        if (!rb) Debug.LogError("Rigidbody2D missing on " + name);
+        
+        rb = GetComponent<Rigidbody2D>();//initialize the rb variable
+        if (!playerAudio) playerAudio = GetComponent<AudioSource>(); //try to get the audio source if not assigned
+        if (!groundCheck) Debug.LogError("groundCheck not assigned to the player controller on " + name); //output to the console if not assigned
+        if (!rb) Debug.LogError("Rigidbody2D missing on " + name); //output to the console if not assigned
     }
 
     void Update()
     {
-        // --- Ground check first for responsive jump ---
+        //Ground check first for responsive jump
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        // --- Read per-player keys and build horizontal input (-1, 0, +1) ---
+        //Read per-player keys and build horizontal input (-1, 0, +1)
         int dir = 0;
         if (Input.GetKey(leftKey)) dir -= 1;
         if (Input.GetKey(rightKey)) dir += 1;
         horizontalInput = dir;
 
-        // --- Jump (preserve X velocity) ---
+        //Jump (preserve X velocity)
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -99,5 +105,34 @@ public class NeonRunnerPlayerController : MonoBehaviour
         // --- Face movement direction ---
         if (horizontalInput > 0f) transform.localScale = new Vector3(1f, 1f, 1f);
         else if (horizontalInput < 0f) transform.localScale = new Vector3(-1f, 1f, 1f);
+
+
+    }
+
+
+    //Abilitie Functino Definitions
+
+    //Apply a slow effect that halves the move speed for a duration (default 5 seconds)
+    public void ApplySlow()
+    {
+        StartCoroutine(SlowCoroutine(5f));
+    }
+    private IEnumerator SlowCoroutine(float duration)
+    {
+        moveSpeed *= 0.5f; //halve the move speed
+        yield return new WaitForSeconds(duration);
+        moveSpeed *= 2f; //restore the move speed
+    }
+
+    //Speed Boost that doubles the move speed for a duration (default 5 seconds)
+    public void ApplyBoost()
+    {
+        StartCoroutine(BoostCoroutine(5f));
+    }
+    private IEnumerator BoostCoroutine(float duration)
+    {
+        moveSpeed *= 2f; //double the move speed
+        yield return new WaitForSeconds(duration);
+        moveSpeed *= 0.5f; //restore the move speed
     }
 }
