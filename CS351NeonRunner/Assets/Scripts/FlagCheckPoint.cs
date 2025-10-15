@@ -14,5 +14,4 @@ public class FlagCheckpoint : MonoBehaviour
         {
             player.SetCheckpoint(transform);
         }
-    }
 }
