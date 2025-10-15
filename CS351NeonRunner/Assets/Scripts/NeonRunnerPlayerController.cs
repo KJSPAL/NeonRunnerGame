@@ -42,6 +42,8 @@ public class NeonRunnerPlayerController : MonoBehaviour
     private bool isGrounded; //Checks if the ground is touched, true if touching false otherwise
     private float horizontalInput; // -1, 0, +1
 
+    private bool isSlowed = false;
+
     void Start()
     {
         
@@ -93,7 +95,7 @@ public class NeonRunnerPlayerController : MonoBehaviour
         {
             // Air control: weaker nudge; don't brake if already faster in same direction
             bool sameDir = Mathf.Sign(rb.velocity.x) == Mathf.Sign(targetX);
-            if (sameDir && Mathf.Abs(rb.velocity.x) > Mathf.Abs(targetX))
+            if (!isSlowed && sameDir && Mathf.Abs(rb.velocity.x) > Mathf.Abs(targetX))
             {
                 targetX = rb.velocity.x; // keep momentum; don't steer down to a smaller target
             }
@@ -115,19 +117,22 @@ public class NeonRunnerPlayerController : MonoBehaviour
     //Apply a slow effect that halves the move speed for a duration (default 5 seconds)
     public void ApplySlow()
     {
-        StartCoroutine(SlowCoroutine(5f));
+        StartCoroutine(SlowCoroutine(3f));
     }
     private IEnumerator SlowCoroutine(float duration)
     {
+        isSlowed = true;
         moveSpeed *= 0.5f; //halve the move speed
         yield return new WaitForSeconds(duration);
         moveSpeed *= 2f; //restore the move speed
+        isSlowed = false;
+
     }
 
     //Speed Boost that doubles the move speed for a duration (default 5 seconds)
     public void ApplyBoost()
     {
-        StartCoroutine(BoostCoroutine(5f));
+        StartCoroutine(BoostCoroutine(2f));
     }
     private IEnumerator BoostCoroutine(float duration)
     {
