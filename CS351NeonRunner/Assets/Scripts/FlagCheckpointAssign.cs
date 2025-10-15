@@ -7,6 +7,7 @@ public class FlagCheckpointAssign : MonoBehaviour
     private Transform lastCheckpoint;
     private Vector3 startPos;
 
+
     void Start()
     {
         //If no checkpoint is touched, respawn at start

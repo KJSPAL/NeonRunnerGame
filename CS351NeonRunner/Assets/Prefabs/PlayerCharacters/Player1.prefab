@@ -277,7 +277,7 @@ MonoBehaviour:
   airAcceleration: 20
   groundLinearDrag: 8
   airLinearDrag: 0
-  jumpSound: {fileID: 8300000, guid: 31ae24f5540970f4db4aefffded26fb8, type: 3}
+  jumpSound: {fileID: 8300000, guid: 7bd92ccff7012204bb0cc50365ae1cab, type: 3}
   playerAudio: {fileID: 0}
 --- !u!114 &4166592648347747953
 MonoBehaviour:
@@ -295,6 +295,8 @@ MonoBehaviour:
   useKey: 113
   opponent: {fileID: 0}
   player: {fileID: 0}
+  abilityTextBox: {fileID: 0}
+  scoreSound: {fileID: 8300000, guid: dfe8004f33f1bd24e864cb49622da104, type: 3}
 --- !u!82 &9031914487435038012
 AudioSource:
   m_ObjectHideFlags: 0
@@ -459,7 +461,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

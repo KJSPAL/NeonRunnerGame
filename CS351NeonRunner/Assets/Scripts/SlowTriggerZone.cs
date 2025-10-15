@@ -5,14 +5,16 @@ using UnityEngine;
 public class SlowTriggerZone : MonoBehaviour
 {
     public AudioClip scoreSound;
-    private AudioSource scoreAudio;
     private void OnTriggerEnter2D(Collider2D player)
     {
         //set current ability to slow opponent
         PlayerAbilities abilities = player.GetComponent<PlayerAbilities>();
-        abilities.currentAbility = AbilityType.SlowOpponent;
+        abilities.SetAbility(AbilityType.SlowOpponent);
 
+        // Play pickup sound
         AudioSource.PlayClipAtPoint(scoreSound, transform.position);
+
+        // Destroy pickup object
         Destroy(gameObject);
     }
 }

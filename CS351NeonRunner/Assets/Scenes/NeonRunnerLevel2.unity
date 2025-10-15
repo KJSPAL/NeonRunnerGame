@@ -2721,6 +2721,10 @@ PrefabInstance:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 287625840}
+    - target: {fileID: 4166592648347747953, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
+      propertyPath: abilityTextBox
+      value: 
+      objectReference: {fileID: 845018777}
     - target: {fileID: 4253181873549367225, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2860,6 +2864,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79aa9dd58fee3d541bfd9163df9a578f, type: 3}
+--- !u!114 &845018777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6415497267196836720, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+  m_PrefabInstance: {fileID: 1665181390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1028625901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2961,6 +2976,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1234046594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234046597}
+  - component: {fileID: 1234046596}
+  - component: {fileID: 1234046595}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1234046595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234046594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1234046596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234046594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1234046597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234046594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1246850386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3049,6 +3130,10 @@ PrefabInstance:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 734686213}
+    - target: {fileID: 4166592648347747953, guid: ca3c6556125905e4487834d5e413b8ab, type: 3}
+      propertyPath: abilityTextBox
+      value: 
+      objectReference: {fileID: 1950590765}
     - target: {fileID: 4253181873549367225, guid: ca3c6556125905e4487834d5e413b8ab, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -3296,6 +3381,10 @@ PrefabInstance:
       value: Collect a Powerup and use <color=#00C1FF>Q for Player1</color> and <color=#FF0000>
         for Player2</color>
       objectReference: {fileID: 0}
+    - target: {fileID: 6741947370259771937, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7491183318961868636, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -3304,6 +3393,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8048001990951687597, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
 --- !u!1001 &1799677215
@@ -3363,6 +3456,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad50aea9086484449ec0183037d3cbe, type: 3}
+--- !u!114 &1950590765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 41505358162106268, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+  m_PrefabInstance: {fileID: 1665181390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2118856481
 GameObject:
   m_ObjectHideFlags: 0

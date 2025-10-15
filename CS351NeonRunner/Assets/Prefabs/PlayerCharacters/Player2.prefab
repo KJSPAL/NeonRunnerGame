@@ -103,7 +103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4913177272456808590}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4913177272456809328
 GameObject:
@@ -140,10 +140,10 @@ Transform:
   m_LocalPosition: {x: -20.3, y: -0.14, z: 16.041758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1196502440140633923}
   - {fileID: 7809140240635380918}
   - {fileID: 4913177273498297839}
   - {fileID: 1125326082893642033}
-  - {fileID: 1196502440140633923}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   airAcceleration: 20
   groundLinearDrag: 8
   airLinearDrag: 0
-  jumpSound: {fileID: 8300000, guid: 31ae24f5540970f4db4aefffded26fb8, type: 3}
+  jumpSound: {fileID: 8300000, guid: 7bd92ccff7012204bb0cc50365ae1cab, type: 3}
   playerAudio: {fileID: 0}
 --- !u!114 &4166592648347747953
 MonoBehaviour:
@@ -295,6 +295,8 @@ MonoBehaviour:
   useKey: 113
   opponent: {fileID: 0}
   player: {fileID: 0}
+  abilityTextBox: {fileID: 0}
+  scoreSound: {fileID: 8300000, guid: dfe8004f33f1bd24e864cb49622da104, type: 3}
 --- !u!82 &9031914487435038012
 AudioSource:
   m_ObjectHideFlags: 0
@@ -435,7 +437,7 @@ RectTransform:
   m_Children:
   - {fileID: 3010753220926104074}
   m_Father: {fileID: 4913177272456808590}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -459,7 +461,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -520,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 4913177272456809328}
     - target: {fileID: 8419103561081761689, guid: 94d96808a4b4cac4e9b0a703124ff128, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8419103561081761689, guid: 94d96808a4b4cac4e9b0a703124ff128, type: 3}
       propertyPath: m_LocalPosition.x
@@ -599,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 4913177272456809328}
     - target: {fileID: 8419103561081761689, guid: 94d96808a4b4cac4e9b0a703124ff128, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8419103561081761689, guid: 94d96808a4b4cac4e9b0a703124ff128, type: 3}
       propertyPath: m_LocalPosition.x
