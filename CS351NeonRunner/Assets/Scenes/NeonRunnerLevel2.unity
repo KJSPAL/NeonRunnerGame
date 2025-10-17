@@ -2715,7 +2715,7 @@ PrefabInstance:
       objectReference: {fileID: 734686213}
     - target: {fileID: 4166592648347747953, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: useKey
-      value: 47
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 4166592648347747953, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: opponent
@@ -2791,7 +2791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913177272456809330, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: sprintKey
-      value: 305
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 7809140240635380912, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: m_Enabled
@@ -3378,7 +3378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
       propertyPath: sentences.Array.data[1]
-      value: Collect a Powerup and use <color=#00C1FF>Q for Player1</color> and <color=#FF0000>
+      value: Collect a Powerup and use <color=#00C1FF>Q for Player1</color> and <color=#FF0000>O
         for Player2</color>
       objectReference: {fileID: 0}
     - target: {fileID: 6741947370259771937, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}

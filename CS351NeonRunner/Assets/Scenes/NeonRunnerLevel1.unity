@@ -1147,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 111231659}
     - target: {fileID: 3327339970013187116, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: useKey
-      value: 47
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 3327339970013187116, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: hasBoost
@@ -1183,19 +1183,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583087, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: jumpKey
-      value: 273
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583087, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: leftKey
-      value: 276
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583087, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: rightKey
-      value: 275
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583087, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: sprintKey
-      value: 305
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583504, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_Color.b
@@ -10264,6 +10264,21 @@ PrefabInstance:
     - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
       propertyPath: sentences.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+      propertyPath: sentences.Array.data[0]
+      value: Use <color=#00C1FF>A & D Keys for Player1</color> and <color=#FF0000>L
+        & ' for Player2</color> to move left and right.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+      propertyPath: sentences.Array.data[1]
+      value: Use <color=#00C1FF>W Key for Player1</color> and <color=#FF0000>P for
+        Player2</color> to jump.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
+      propertyPath: sentences.Array.data[2]
+      value: Use <color=#00C1FF>LeftShift for Player1</color> and <color=#FF0000>RightShift
+        for Player2</color> to sprint.
       objectReference: {fileID: 0}
     - target: {fileID: 4153584120372324427, guid: 65c0d9399a950b64cadc86f29de3ce95, type: 3}
       propertyPath: sentences.Array.data[3]
