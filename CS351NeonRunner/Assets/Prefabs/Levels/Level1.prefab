@@ -1168,7 +1168,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagCheckPoint (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7457774562720068578, guid: 79aa9dd58fee3d541bfd9163df9a578f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79aa9dd58fee3d541bfd9163df9a578f, type: 3}
 --- !u!4 &5318653224625063761 stripped
 Transform:
@@ -1230,7 +1231,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlagCheckPoint
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7457774562720068578, guid: 79aa9dd58fee3d541bfd9163df9a578f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79aa9dd58fee3d541bfd9163df9a578f, type: 3}
 --- !u!4 &6039537452753644039 stripped
 Transform:

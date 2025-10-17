@@ -44,6 +44,10 @@ public class NeonRunnerPlayerController : MonoBehaviour
 
     private bool isSlowed = false;
 
+    //Animations
+    [Header("Animations")]
+    private Animator Animator1;
+
     void Start()
     {
         
@@ -108,7 +112,14 @@ public class NeonRunnerPlayerController : MonoBehaviour
         if (horizontalInput > 0f) transform.localScale = new Vector3(1f, 1f, 1f);
         else if (horizontalInput < 0f) transform.localScale = new Vector3(-1f, 1f, 1f);
 
-
+        if (horizontalInput != 0)
+        {
+            Animator1.SetBool("IsRunning", true);
+        }
+        else
+        {
+            Animator1.SetBool("IsRunning", false);
+        }
     }
 
 
