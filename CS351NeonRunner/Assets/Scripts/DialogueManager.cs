@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,6 +16,26 @@ public class DialogueManager : MonoBehaviour
     int index = 0;
     bool isTyping = false;
 
+    // Keep track of shown scenes to avoid repeating dialogues
+    static HashSet<string> shownScenes = new HashSet<string>();
+
+    private void Awake()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if(shownScenes.Contains(sceneName) )
+        {
+            dialoguePanel.SetActive(false);
+            Time.timeScale = 1f; // unfreeze game
+            enabled = false;
+        }
+        else
+        {
+            shownScenes.Add(sceneName);
+        }
+
+
+    }
     void OnEnable()
     {
         // Reset state every time dialogue opens
