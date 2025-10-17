@@ -260,10 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524012a76b1fca84a868196fa7e499d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftKey: 276
-  rightKey: 275
-  jumpKey: 273
-  sprintKey: 305
+  leftKey: 108
+  rightKey: 39
+  jumpKey: 112
+  sprintKey: 303
   moveSpeed: 5
   jumpForce: 10
   groundLayer:
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAbility: 0
-  useKey: 113
+  useKey: 111
   opponent: {fileID: 0}
   player: {fileID: 0}
   abilityTextBox: {fileID: 0}
