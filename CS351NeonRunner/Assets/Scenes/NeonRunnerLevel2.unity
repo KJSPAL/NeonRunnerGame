@@ -2791,7 +2791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913177272456809330, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: sprintKey
-      value: 305
+      value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 7809140240635380912, guid: 6a65300df331a80439cf79823f292ebb, type: 3}
       propertyPath: m_Enabled
