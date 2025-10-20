@@ -48,9 +48,14 @@ public class NeonRunnerPlayerController : MonoBehaviour
     [Header("Animations")]
     private Animator Animator1;
 
+    [Header("Coyote Time")]
+    public float coyoteTime = 0.15f; 
+    private float coyoteTimeCounter;
+
+
     void Start()
     {
-        
+        Animator1 = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();//initialize the rb variable
         if (!playerAudio) playerAudio = GetComponent<AudioSource>(); //try to get the audio source if not assigned
         if (!groundCheck) Debug.LogError("groundCheck not assigned to the player controller on " + name); //output to the console if not assigned
@@ -62,6 +67,9 @@ public class NeonRunnerPlayerController : MonoBehaviour
         //Ground check first for responsive jump
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
+        Animator1.SetBool("IsGrounded", isGrounded);
+        Animator1.SetFloat("YVelocity", rb.velocity.y);
+
         //Read per-player keys and build horizontal input (-1, 0, +1)
         int dir = 0;
         if (Input.GetKey(leftKey)) dir -= 1;
@@ -69,10 +77,21 @@ public class NeonRunnerPlayerController : MonoBehaviour
         horizontalInput = dir;
 
         //Jump (preserve X velocity)
-        if (Input.GetKeyDown(jumpKey) && isGrounded)
+        if (Input.GetKeyDown(jumpKey) && coyoteTimeCounter > 0f)
         {
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             if (playerAudio && jumpSound) playerAudio.PlayOneShot(jumpSound, 0.5f);
+            Animator1.SetTrigger("Jump"); // play jump animation
+        }
+
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime; // reset timer when grounded
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime; // count down while in air
         }
     }
 
@@ -87,6 +106,7 @@ public class NeonRunnerPlayerController : MonoBehaviour
             speedCap *= sprintMultiplier;
 
         float targetX = horizontalInput * Mathf.Min(maxSpeed, speedCap);
+        Animator1.SetBool("IsGrounded", isGrounded);
 
         // --- Horizontal movement ---
         if (isGrounded)
@@ -112,7 +132,7 @@ public class NeonRunnerPlayerController : MonoBehaviour
         if (horizontalInput > 0f) transform.localScale = new Vector3(1f, 1f, 1f);
         else if (horizontalInput < 0f) transform.localScale = new Vector3(-1f, 1f, 1f);
 
-        if (horizontalInput != 0)
+        if (horizontalInput != 0f)
         {
             Animator1.SetBool("IsRunning", true);
         }
