@@ -1,39 +1,48 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MonsterMovement : MonoBehaviour
 {
     public float moveSpeed = 2f;
-    public LayerMask groundLayer;
-
-    // Put this a little in front of the monster's feet.
-    public Transform probe;
-    public float groundCheckDistance = 0.25f;
-    public float wallCheckDistance = 0.1f;
+    public LayerMask groundLayer;      // include your ground/tilemap layers
+    public float groundCheckDown = 0.5f;   // how far to look down (make ≥ tile height * 0.6)
+    public float frontEpsilon = 0.05f;     // a hair in front of the feet
 
     Rigidbody2D rb;
+    Collider2D col;
     int dir = -1; // -1 = left, +1 = right
 
-    void Awake() => rb = GetComponent<Rigidbody2D>();
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+        rb.freezeRotation = true;
+    }
 
     void FixedUpdate()
     {
-        // Move
+        // move horizontally
         rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
 
-        // Turn if there is no ground ahead or a wall ahead
-        bool groundAhead = Physics2D.Raycast(probe.position, Vector2.down, groundCheckDistance, groundLayer);
-        bool wallAhead = Physics2D.Raycast(probe.position, new Vector2(dir, 0f), wallCheckDistance, groundLayer);
+        // compute a point at the "front foot" from collider bounds
+        var b = col.bounds;
+        Vector2 frontFoot = new Vector2(
+            dir < 0 ? b.min.x - frontEpsilon : b.max.x + frontEpsilon,
+            b.min.y + 0.02f
+        );
 
-        if (!groundAhead || wallAhead) Flip();
+        // look straight down for ground ahead
+        bool groundAhead = Physics2D.Raycast(frontFoot, Vector2.down, groundCheckDown, groundLayer);
+
+        if (!groundAhead) Flip();
     }
 
     void Flip()
     {
-        dir *= -1;
+        dir = -dir;
         var s = transform.localScale;
         s.x = Mathf.Abs(s.x) * dir;
         transform.localScale = s;
     }
 }
+
