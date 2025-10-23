@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player1
   - Player2
+  - Weak Point
   layers:
   - Default
   - TransparentFX
