@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class MonsterStomp : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag == "Weak Point")
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            Destroy(collision.gameObject);
-
+            // Kill the monster (parent/root), not the weak point object.
+            Destroy(transform.root.gameObject);
         }
-
-
     }
-
-
 }
+

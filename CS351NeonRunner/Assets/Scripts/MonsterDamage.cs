@@ -5,14 +5,11 @@ using UnityEngine;
 public class MonsterDamage : MonoBehaviour
 {
 
-    public int damage;
-    public PlayerHealth playerHealth;
-
-    private void OnCollsionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player1")
+        if(collision.gameObject.tag == "Enemy")
         {
-            playerHealth.TakeDamage(damage);
+            GetComponent<FlagCheckpointAssign>().Respawn();
         }
     }
    
