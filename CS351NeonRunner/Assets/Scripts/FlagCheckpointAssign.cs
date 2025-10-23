@@ -6,6 +6,7 @@ public class FlagCheckpointAssign : MonoBehaviour
 {
     private Transform lastCheckpoint;
     private Vector3 startPos;
+    public AudioClip scoreSound;
 
 
     void Start()
@@ -16,7 +17,15 @@ public class FlagCheckpointAssign : MonoBehaviour
 
     public void SetCheckpoint(Transform checkpoint)
     {
-        lastCheckpoint = checkpoint;
+        if(lastCheckpoint == checkpoint)
+        {
+            return; //already at this checkpoint
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(scoreSound, transform.position);
+            lastCheckpoint = checkpoint;
+        }
     }
 
     public void Respawn()

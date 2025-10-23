@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.75686276, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0.75686276, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -294,7 +294,7 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 4913177273498297839}
   groundCheckRadius: 0.2
-  sprintMultiplier: 1.8
+  sprintMultiplier: 2
   maxSpeed: 10
   groundAcceleration: 60
   airAcceleration: 20
@@ -302,7 +302,7 @@ MonoBehaviour:
   airLinearDrag: 0
   jumpSound: {fileID: 8300000, guid: 7bd92ccff7012204bb0cc50365ae1cab, type: 3}
   playerAudio: {fileID: 0}
-  Animator1: {fileID: 6728545039899171676}
+  coyoteTime: 0.15
 --- !u!114 &4166592648347747953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac28495af3f1c84fab7604dd4b8cca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreSound: {fileID: 8300000, guid: 144e6f95a6ad0c8429b2392694dec662, type: 3}
 --- !u!95 &6728545039899171676
 Animator:
   serializedVersion: 5
