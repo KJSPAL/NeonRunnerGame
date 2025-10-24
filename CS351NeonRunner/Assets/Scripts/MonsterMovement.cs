@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class MonsterMovement : MonoBehaviour
 {
     public float speed = 2f;
@@ -10,13 +11,21 @@ public class MonsterMovement : MonoBehaviour
 
     Rigidbody2D rb;
     Collider2D col;
+    SpriteRenderer sr;
+
     int dir = -1; // 1 = right, -1 = left
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        sr = GetComponent<SpriteRenderer>();
+        if (sr == null) sr = GetComponentInChildren<SpriteRenderer>(); // if the sprite is a child
+
         rb.freezeRotation = true;
+
+        // Face according to starting dir (assumes art faces RIGHT by default)
+        if (sr) sr.flipX = (dir < 0);
     }
 
     void FixedUpdate()
@@ -41,8 +50,13 @@ public class MonsterMovement : MonoBehaviour
     void Flip()
     {
         dir = -dir;
-        var s = transform.localScale;
-        s.x = Mathf.Abs(s.x) * dir;
-        transform.localScale = s;
+
+        // Use SpriteRenderer.flipX instead of scaling the Transform
+        if (sr) sr.flipX = (dir < 0);
+
+        // IMPORTANT: do NOT scale-flip anymore, or Animator may fight it.
+        // var s = transform.localScale;
+        // s.x = Mathf.Abs(s.x) * dir;
+        // transform.localScale = s;
     }
 }
