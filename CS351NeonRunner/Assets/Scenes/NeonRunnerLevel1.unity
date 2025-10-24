@@ -1049,6 +1049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2Level
       objectReference: {fileID: 0}
+    - target: {fileID: 100743231151207317, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 600506363861636394, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_SizeDelta.y
       value: -261.7446
@@ -6064,6 +6068,10 @@ PrefabInstance:
     - target: {fileID: 6039537451902583085, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039537451902583085, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6039537451902583085, guid: d3ddf9c40e1209d4595f54da8b3cf8d5, type: 3}
       propertyPath: m_TagString
@@ -27236,6 +27244,10 @@ PrefabInstance:
     - target: {fileID: 3704554805581881559, guid: 1e9723cf0912d204680f91bc2b2365ec, type: 3}
       propertyPath: m_Name
       value: CityBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704554805581881559, guid: 1e9723cf0912d204680f91bc2b2365ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3946446444365204703, guid: 1e9723cf0912d204680f91bc2b2365ec, type: 3}
       propertyPath: m_Sprite
