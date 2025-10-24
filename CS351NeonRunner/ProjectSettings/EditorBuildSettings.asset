@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NeonRunnerLevel2.unity
     guid: ec96a238f5886404182f12db93a534dc
+  - enabled: 1
+    path: Assets/Scenes/NeonRunnerLevel3.unity
+    guid: e0808e4675ef9974881337c80a3b45bd
   m_configObjects: {}

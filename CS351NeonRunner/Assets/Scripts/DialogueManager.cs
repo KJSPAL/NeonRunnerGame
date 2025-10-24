@@ -19,6 +19,19 @@ public class DialogueManager : MonoBehaviour
     // Keep track of shown scenes to avoid repeating dialogues
     static HashSet<string> shownScenes = new HashSet<string>();
 
+    private void Update()
+    {
+        //If panel is active freeze time
+        if (dialoguePanel.activeSelf)
+        {
+            Time.timeScale = 0f; //freeze game
+        }
+        else
+        {
+            Time.timeScale = 1f; //unfreeze game
+        }
+    }
+
     private void Awake()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -26,7 +39,6 @@ public class DialogueManager : MonoBehaviour
         if(shownScenes.Contains(sceneName) )
         {
             dialoguePanel.SetActive(false);
-            Time.timeScale = 1f; // unfreeze game
             enabled = false;
         }
         else

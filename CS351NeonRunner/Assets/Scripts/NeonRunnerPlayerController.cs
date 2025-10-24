@@ -145,7 +145,6 @@ public class NeonRunnerPlayerController : MonoBehaviour
 
     //Abilitie Functino Definitions
 
-    //Apply a slow effect that halves the move speed for a duration (default 5 seconds)
     public void ApplySlow()
     {
         StartCoroutine(SlowCoroutine(3f));
@@ -159,8 +158,6 @@ public class NeonRunnerPlayerController : MonoBehaviour
         isSlowed = false;
 
     }
-
-    //Speed Boost that doubles the move speed for a duration (default 5 seconds)
     public void ApplyBoost()
     {
         StartCoroutine(BoostCoroutine(2f));
